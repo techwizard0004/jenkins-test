@@ -13,4 +13,9 @@ public class Api {
     public Integer add(@PathVariable Integer num1, @PathVariable Integer num2){
         return (num1 + num2);
     }
+
+    @GetMapping(path = "/subtract/{num1}/{num2}")
+    public Integer subtract(@PathVariable Integer num1, @PathVariable Integer num2){
+        return (num1 - num2);
+    }
 }

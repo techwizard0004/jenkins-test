@@ -28,8 +28,7 @@ class CodeApplicationTests {
 	String mainUrl = "http://localhost:8080/backend";
 
 	@Test
-	@Order(1)
-	void addStudentTest() throws Exception {
+	void addTest() throws Exception {
 
 		this.mockMvc
 				.perform(
@@ -37,6 +36,18 @@ class CodeApplicationTests {
 								.contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string(String.valueOf(5)))
+				.andDo(print());
+	}
+
+	@Test
+	void subtractTest() throws Exception {
+
+		this.mockMvc
+				.perform(
+						get(mainUrl + "/subtract"+"/5/2")
+								.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk())
+				.andExpect(content().string(String.valueOf(4)))
 				.andDo(print());
 	}
 
